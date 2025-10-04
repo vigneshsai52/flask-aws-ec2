@@ -125,7 +125,7 @@ Visit your browser at:
 ## 🧑‍💻 Author
 **Vignesh Sai**  
 💼 *Cloud | DevOps | Security Enthusiast*  
-🌐 [GitHub](https://github.com/vigneshsai52) • [LinkedIn](#) *(www.linkedin.com/in/u-vignesh-sai-107336244)*
+🌐 [GitHub](https://github.com/vigneshsai52) • [LinkedIn](https://www.linkedin.com/in/u-vignesh-sai-107336244)
 
 ---
 
