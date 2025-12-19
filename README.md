@@ -1,141 +1,84 @@
-# 🚀 Secure Flask App on AWS EC2
+Secure Flask Application Deployment on AWS EC2
 
-![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python)
-![Flask](https://img.shields.io/badge/Flask-Framework-black?logo=flask)
-![AWS](https://img.shields.io/badge/AWS-EC2%20%7C%20S3-orange?logo=amazonaws)
-![Security](https://img.shields.io/badge/Security-Bcrypt%20Auth-success)
-![License](https://img.shields.io/badge/License-MIT-green)
+Overview
+This project demonstrates the deployment of a Flask web application on AWS EC2 with a focus on secure backend practices and cloud deployment fundamentals. The application implements secure password handling and follows basic security best practices commonly used in production-ready systems.
 
-A lightweight **Flask web application** deployed securely on **AWS EC2** with **bcrypt authentication** and **S3 integration** for optimized static content delivery.
+--------------------------------------------------
 
----
+Features
+- Flask-based web application
+- Secure user authentication using bcrypt password hashing
+- Deployment on AWS EC2 (Linux)
+- SSH-based server access using key authentication
+- AWS Security Groups configured for restricted network access
+- Clean and structured backend design
 
-## 📋 Project Overview
+--------------------------------------------------
 
-This project demonstrates building and deploying a **secure Flask application** on AWS EC2.  
-It uses **Flask-Bcrypt** for password hashing to protect user data and mitigate risks like SQL injection and brute-force attacks.
+Tech Stack
+- Programming Language: Python
+- Framework: Flask
+- Authentication Security: Flask-Bcrypt
+- Cloud Platform: AWS EC2
+- Operating System: Linux (Ubuntu)
+- Tools: Git, GitHub, SSH
 
-### 🔑 Key Features
-- Secure login & signup with **bcrypt** password hashing  
-- Deployed on **AWS EC2 (Ubuntu/Linux)**  
-- Static file optimization using **AWS S3**  
-- **Security Groups** configured for restricted network access  
-- Load time improved by **~15%** through S3 caching  
+--------------------------------------------------
 
----
+Project Structure
 
-## 🧰 Tech Stack
-
-| Category | Technology |
-|-----------|-------------|
-| **Backend** | Python (Flask Framework) |
-| **Authentication** | Flask-Bcrypt |
-| **Cloud Platform** | AWS EC2, AWS S3 |
-| **OS** | Linux (Ubuntu 22.04) |
-| **Version Control** | Git & GitHub |
-
----
-
-## 🏗️ Project Structure
-
-```
 flask-aws-ec2/
-│
-├── app.py                # Main Flask application
-├── requirements.txt      # Python dependencies
-├── README.md             # Project documentation
-└── static/               # (Optional) Static files from S3
-```
+- app.py
+- requirements.txt
+- README.md
 
----
+--------------------------------------------------
 
-## ⚙️ Setup & Run Locally
+How to Run Locally
 
-```bash
-# Clone the repository
+Step 1: Clone the repository
 git clone https://github.com/vigneshsai52/flask-aws-ec2.git
 cd flask-aws-ec2
 
-# Create and activate virtual environment
-python3 -m venv venv
-source venv/bin/activate   # On Windows: venv\Scripts\activate
-
-# Install dependencies
+Step 2: Install dependencies
 pip install -r requirements.txt
 
-# Run Flask app
+Step 3: Run the application
 python app.py
-```
 
-Visit → **http://localhost:5000**
+Application runs at:
+http://127.0.0.1:5000
 
----
+--------------------------------------------------
 
-## ☁️ Deploying to AWS EC2
+Deployment on AWS EC2 (High-Level)
+- Created an EC2 instance using Linux OS
+- Configured inbound rules in Security Groups (SSH and application port)
+- Connected to the server using SSH and PEM key
+- Deployed and executed the Flask application on the EC2 instance
+- Verified access using the public IP address
 
-### Step 1️⃣ — Launch EC2 Instance
-- Choose **Ubuntu 22.04 LTS**
-- Configure **Security Groups**:
-  - Allow inbound **22 (SSH)** and **5000 (Flask app)**
+--------------------------------------------------
 
-### Step 2️⃣ — Connect via SSH
-```bash
-ssh -i "your-key.pem" ubuntu@<EC2-Public-IP>
-```
+Security Practices
+- Passwords are securely hashed using bcrypt
+- SSH access secured with key-based authentication
+- Network access restricted using AWS Security Groups
+- Sensitive information not hardcoded in source code
 
-### Step 3️⃣ — Set Up Environment
-```bash
-sudo apt update
-sudo apt install python3-pip git -y
-git clone https://github.com/vigneshsai52/flask-aws-ec2.git
-cd flask-aws-ec2
-pip3 install -r requirements.txt
-python3 app.py
-```
+--------------------------------------------------
 
-### Step 4️⃣ — Access the App
-Visit your browser at:  
-`http://<EC2-Public-IP>:5000`
+Learning Outcomes
+- Gained hands-on experience with AWS EC2
+- Learned basic cloud deployment workflow
+- Understood secure authentication handling
+- Improved knowledge of Linux-based server environments
+- Practiced deploying backend applications to the cloud
 
----
+--------------------------------------------------
 
-## 🪣 Optional: AWS S3 for Static Files
-- Create an **S3 bucket** and upload CSS, JS, and image files.  
-- Make bucket objects publicly readable.  
-- Update Flask templates to load static assets directly from S3 URLs.
-
----
-
-## 🔒 Security Highlights
-- ✅ Passwords hashed with **Flask-Bcrypt**  
-- ✅ Prevents **SQL injection** via secure backend logic  
-- ✅ EC2 **Security Groups** restrict inbound access  
-- ✅ HTTPS can be configured using **Nginx + Certbot (Let’s Encrypt)**  
-- ✅ Supports secure session cookies (`HttpOnly`, `Secure`, `SameSite`)
-
----
-
-## 📈 Performance
-- Static content delivery through **AWS S3** reduced load time by **~15%**  
-- Lightweight Flask server efficiently runs on **t2.micro EC2 instance**  
-- Scalable for small-to-medium workloads  
-
----
-
-## 🧑‍💻 Author
-**Vignesh Sai**  
-💼 *Cloud | DevOps | Security Enthusiast*  
-🌐 [GitHub](https://github.com/vigneshsai52) • [LinkedIn](https://www.linkedin.com/in/u-vignesh-sai-107336244)
-
----
-
-## 🏁 Future Improvements
-- 🔹 Integrate with **MySQL / PostgreSQL**  
-- 🔹 Add **JWT Authentication**  
-- 🔹 Deploy via **Nginx + Gunicorn** for production  
-- 🔹 Automate with **AWS CodeDeploy / Terraform**
-
----
-
-## 🪪 License
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+Author
+Vignesh Sai
+Software Engineering Student | Cloud & Security Enthusiast
+GitHub: https://github.com/vigneshsai52
+LinkedIn: https://www.linkedin.com/in/u-vignesh-sai-107336244
